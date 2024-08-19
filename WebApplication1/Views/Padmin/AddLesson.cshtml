@@ -1,0 +1,33 @@
+﻿@using WebApplication1.ViewModel
+@model LessonVM
+
+@{
+    ViewData["Title"] = "Add Lesson";
+}
+
+<h2>Додати Урок</h2>
+
+<form asp-action="AddLesson" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="CourseId" />
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ScheduledDate"></label>
+        <input asp-for="ScheduledDate" class="form-control" type="datetime-local" />
+        <span asp-validation-for="ScheduledDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" asp-for="IsRegular" />
+        <label class="form-check-label" asp-for="IsRegular"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Додати</button>
+</form>

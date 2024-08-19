@@ -1,0 +1,53 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="row">
+    <div class="col-lg-6 mx-auto rounded border p-3 text-black">
+        <h2 class="text-center mb-3">Створити новий акаунт</h2>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div class="form-floating mb-3">
+                <input asp-for="Input.FirstName" class="form-control"/>
+                <label asp-for="Input.FirstName">Ім'я'</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.LastName" class="form-control"/>
+                <label asp-for="Input.LastName">Прізвище</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control"/>
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control"/>
+                <label asp-for="Input.PhoneNumber">Номер телефону</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control"/>
+                <label asp-for="Input.Password">Пароль</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control"/>
+                <label asp-for="Input.ConfirmPassword">Підтвердити пароль</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Зареєструватись
+
+            </button>
+        </form>
+    </div>
+</div>

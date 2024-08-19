@@ -1,0 +1,26 @@
+.section {
+    padding-top: 60px;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 4em 1em;
+    text-align: center;
+}
+body {
+    background: rgb(46, 41, 138);
+    background: linear-gradient(90deg, rgba(46, 41, 138, 1) 0%, rgba(58, 215, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+}
+.section1, .section2, .section3 {
+    background-color: #24d5cc;
+}
+
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+
+

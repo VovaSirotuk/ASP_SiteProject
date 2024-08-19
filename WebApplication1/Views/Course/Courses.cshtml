@@ -1,0 +1,77 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Курси</font></font></h1>
+        <p class="lead text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></p>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+
+    <div class="container">
+        <div class="row text-black">
+        @if (User.IsInRole("Admin"))
+            {
+                <div class="col-md-6">
+                    <div class="card mb-6 box-shadow">
+                        <a asp-area="" asp-controller="Padmin" asp-action="AddCourse"><img class="card-img-top" src="~/img/plus.png" alt="Card image cap"></a>
+                    </div>
+                </div>
+                @foreach (var course in Model)
+                {
+                    <div class="col-md-6">
+                        <div class="card mb-6 box-shadow">
+                            <p class="course-header text-center">@course.Title</p>
+                            <img class="card-img-top" src="~/img/corse-icon.jpeg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">@course.Description</p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <div class="btn-group">
+                                        <a asp-action="" asp-route-id="@course.CourseId" class="btn btn-sm btn-outline-secondary">Переглянути</a>
+                                        <a asp-controller="Padmin" asp-action="ChangeCourse" asp-route-id="@course.CourseId" class="btn btn-sm btn-outline-secondary">Змінити</a>
+                                        <a asp-controller="Padmin" asp-action="AddLesson" asp-route-id="@course.CourseId" class="btn btn-sm btn-outline-secondary">Додати заняття</a>
+
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }else{
+                @foreach (var course in Model)
+                {
+                <div class="col-md-6">
+                    <div class="card mb-6 box-shadow">
+                        <p class="course-header text-center">@course.Title</p>
+                        <img class="card-img-top" src="~/img/corse-icon.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">@course.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="btn-group">
+                                        <a asp-action="" asp-route-id="@course.CourseId" class="btn btn-sm btn-outline-secondary">Переглянути</a>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Записатись</button>
+                            </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>    
+                    </div>
+                </div>   
+                }
+            }
+        </div>
+    </div>
+</div>
+<style>
+    .card-img-top:hover{
+    border-radius: 15px;
+    box-shadow: 3px 3px red, -1em 0 .4em olive;;
+    }
+</style>
